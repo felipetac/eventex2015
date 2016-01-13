@@ -3,6 +3,7 @@
 Sistema de Eventos encomendado pela Morena
 
 [![Build Status](https://travis-ci.org/felipetac/eventex.svg?branch=master)](https://travis-ci.org/felipetac/eventex)
+[![Code Health](https://landscape.io/github/felipetac/eventex/master/landscape.svg?style=flat)](https://landscape.io/github/felipetac/eventex/master)
 
 ##Como desenvolver?
 
