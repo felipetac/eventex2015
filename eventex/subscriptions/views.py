@@ -2,17 +2,21 @@ from django.conf import settings
 from django.contrib import messages
 from django.core import mail
 from django.http import HttpResponseRedirect, Http404
-from django.shortcuts import render
+from django.shortcuts import render, resolve_url as r
 from django.template.loader import render_to_string
 from eventex.subscriptions.forms import SubscriptionForm
 from eventex.subscriptions.models import Subscription
 
 
-def subscribe(request):
+def new(request):
     if request.method == 'POST':
         return create(request)
-    else:
-        return new(request)
+    return empty_form(request)
+
+
+def empty_form(request):
+    return render(request, 'subscriptions/subscription_form.html', {'form': SubscriptionForm()})
+
 
 def create(request):
     form = SubscriptionForm(request.POST)
@@ -24,10 +28,8 @@ def create(request):
     _send_mail('Confirmação de inscrição', settings.DEFAULT_FROM_EMAIL, subscription.email,
                'subscriptions/subscription_email.txt', {'subscription': subscription})
 
-    return HttpResponseRedirect('/inscricao/{}/'.format(subscription.pk))
+    return HttpResponseRedirect(r('subscriptions:detail', subscription.pk))
 
-def new(request):
-    return render(request, 'subscriptions/subscription_form.html', {'form': SubscriptionForm()})
 
 def detail(request, pk):
     try:
@@ -35,6 +37,7 @@ def detail(request, pk):
     except Subscription.DoesNotExist:
         raise Http404
     return render(request, 'subscriptions/subscription_detail.html', {'subscription': subscription})
+
 
 def _send_mail(subject, from_, to, template_name, context):
     body = render_to_string(template_name, context)
