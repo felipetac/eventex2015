@@ -1,4 +1,4 @@
-#Eventex
+# Eventex
 
 Sistema de Eventos encomendado pela Morena
 
@@ -6,7 +6,7 @@ Sistema de Eventos encomendado pela Morena
 [![Coverage Status](https://coveralls.io/repos/github/felipetac/eventex/badge.svg?branch=master)](https://coveralls.io/github/felipetac/eventex?branch=master)
 [![Code Health](https://landscape.io/github/felipetac/eventex/master/landscape.svg?style=flat)](https://landscape.io/github/felipetac/eventex/master)
 
-##Como desenvolver?
+## Como desenvolver?
 
 1. Clone o repositório
 2. Crie um virtualenv com Python 3.5
