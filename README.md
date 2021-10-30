@@ -16,7 +16,7 @@ Sistema de Eventos encomendado pela Morena
 6. Execute os testes.
 
 ```console
-git clone git@github.com:felipetac/wttd2015.git wttd
+git clone git@github.com:felipetac/eventex2015.git wttd
 cd wttd
 python -m venv .wttd
 source .wttd/bin/activate
